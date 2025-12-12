@@ -50,6 +50,12 @@ int sta_cnt = 0;
 // 已经收到的包数量
 int rec_cnt = 0;
 
+void ping_reset_session(void) {
+    memset(statistics, 0, sizeof(statistics));
+    sta_cnt = 0;
+    rec_cnt = 0;
+}
+
 // 1. 获取 RTT 最大值
 uint64_t get_rtt_max(statistic *stats, int count) {
     uint64_t max_val = 0;          // 默认从 0 开始
@@ -156,14 +162,16 @@ void ping_session_init(uint16_t seq) {
 
 void ping_run(xipaddr_t* dst, uint16_t seq)
 {
-
     ping_session_init(seq);
     uint8_t pay[2] = {6,6};
     ping_ctx.send_time = get_time_us();
     xnet_err_t err =  xicmp_echo_request(dst, ping_ctx.id, seq, pay, 2);
-    statistics[seq].transmitted = 1;
-    // 在统计表里标记这个 seq 已经发送
-    sta_cnt++;
+    if (err == XNET_ERR_OK) {
+        statistics[seq].transmitted = 1;
+        sta_cnt++;
+    } else {
+        // 这里可以选择：不计数，或者等待 ARP 后重发同一个 seq
+    }
 }
 
 void ping_run_payload(xipaddr_t* dst, uint16_t seq, uint8_t* payload, uint16_t payload_len) //为带宽测试服务

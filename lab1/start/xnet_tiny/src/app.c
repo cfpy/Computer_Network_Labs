@@ -3,6 +3,17 @@
 #include <time.h>
 #include <stdlib.h>
 #include <string.h>
+#include <conio.h>
+
+int check_exit_key(void) {
+    if (_kbhit()) {          // 是否有按键
+        int ch = _getch();   // 读取按键
+        if (ch == 'q' || ch == 'Q' || ch == 27) { // q 或 ESC
+            return 1;
+        }
+    }
+    return 0;
+}
 
 int main (void) {
     system("chcp 65001");
@@ -22,6 +33,7 @@ int main (void) {
     int running = 1;
 
     while (running) {
+        ping_reset_session();
 
         xipaddr_t dst = {192,168,19,66};
         int pkt_num = 8;
@@ -32,8 +44,9 @@ int main (void) {
         printf("3. 带宽估算\n");
         printf("4. 抖动测量\n");
         printf("5. 正常运行监听\n");
-        printf("6. 退出\n");
-        printf("7. 打印arp表\n");
+        printf("6. 打印arp表\n");
+        printf("7. 退出\n");
+        printf("(按 q 或 ESC 可随时退出任一功能)\n");
         printf("\n请选择功能 (1-7): ");
 
 
@@ -51,7 +64,7 @@ int main (void) {
 
         switch (choice) {
             case 1:
-
+                ping_reset_session();
                 printf("\nPinging ");
                 print_ip(&dst);
                 printf(" with %d packets:\n\n",pkt_num);
@@ -63,8 +76,13 @@ int main (void) {
                     time_t start_time = time(NULL);
                     while (difftime(time(NULL), start_time) < duration) {
                         xnet_poll();
+                        if (check_exit_key()) {
+                            printf("\n用户中断，返回主菜单。\n");
+                            goto out;   // 或 break + 标志位
+                        }
                     }
                 }
+                out:
                 print_statistics();
                 break;
             case 2:
@@ -111,7 +129,10 @@ int main (void) {
                 while (1) {
                     // 让协议栈持续跑：收包、ARP 定时等
                     xnet_poll();
-
+                    if (check_exit_key()) {
+                        printf("\n退出监听模式，返回主菜单。\n");
+                        break;
+                    }
                     // 当前时间（毫秒）
                     uint32_t now = xsys_get_time_ms();
 
@@ -124,11 +145,11 @@ int main (void) {
                 break;
             }    
             case 6:
-                printf("正在退出程序...\n");
-                running = 0;
+                print_arp_table();
                 break;
             case 7:
-                print_arp_table();
+                printf("正在退出程序...\n");
+                running = 0;
                 break;
             default:
                 printf("无效选项，请重新选择。\n");

@@ -342,7 +342,9 @@ CMakeFiles/xnet.dir/src/app.c.obj: C:/Users/19145/Desktop/CN_lab1/start/xnet_tin
   C:/Program\ Files/mingw-w64-compiler/x86_64-14.2.0-release-win32-seh-ucrt-rt_v12-rev2/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/mm_malloc.h \
   C:/Program\ Files/mingw-w64-compiler/x86_64-14.2.0-release-win32-seh-ucrt-rt_v12-rev2/mingw64/x86_64-w64-mingw32/include/errno.h \
   C:/Program\ Files/mingw-w64-compiler/x86_64-14.2.0-release-win32-seh-ucrt-rt_v12-rev2/mingw64/x86_64-w64-mingw32/include/string.h \
-  C:/Program\ Files/mingw-w64-compiler/x86_64-14.2.0-release-win32-seh-ucrt-rt_v12-rev2/mingw64/x86_64-w64-mingw32/include/sec_api/string_s.h
+  C:/Program\ Files/mingw-w64-compiler/x86_64-14.2.0-release-win32-seh-ucrt-rt_v12-rev2/mingw64/x86_64-w64-mingw32/include/sec_api/string_s.h \
+  C:/Program\ Files/mingw-w64-compiler/x86_64-14.2.0-release-win32-seh-ucrt-rt_v12-rev2/mingw64/x86_64-w64-mingw32/include/conio.h \
+  C:/Program\ Files/mingw-w64-compiler/x86_64-14.2.0-release-win32-seh-ucrt-rt_v12-rev2/mingw64/x86_64-w64-mingw32/include/sec_api/conio_s.h
 
 
 C:/Program\ Files/mingw-w64-compiler/x86_64-14.2.0-release-win32-seh-ucrt-rt_v12-rev2/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/clzerointrin.h:
@@ -485,6 +487,8 @@ C:/Program\ Files/mingw-w64-compiler/x86_64-14.2.0-release-win32-seh-ucrt-rt_v12
 
 C:/Program\ Files/mingw-w64-compiler/x86_64-14.2.0-release-win32-seh-ucrt-rt_v12-rev2/mingw64/x86_64-w64-mingw32/include/specstrings.h:
 
+C:/Program\ Files/mingw-w64-compiler/x86_64-14.2.0-release-win32-seh-ucrt-rt_v12-rev2/mingw64/x86_64-w64-mingw32/include/conio.h:
+
 C:/Program\ Files/mingw-w64-compiler/x86_64-14.2.0-release-win32-seh-ucrt-rt_v12-rev2/mingw64/x86_64-w64-mingw32/include/sal.h:
 
 C:/Program\ Files/mingw-w64-compiler/x86_64-14.2.0-release-win32-seh-ucrt-rt_v12-rev2/mingw64/x86_64-w64-mingw32/include/concurrencysal.h:
@@ -580,6 +584,8 @@ C:/Program\ Files/mingw-w64-compiler/x86_64-14.2.0-release-win32-seh-ucrt-rt_v12
 C:/Program\ Files/mingw-w64-compiler/x86_64-14.2.0-release-win32-seh-ucrt-rt_v12-rev2/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avx512bf16vlintrin.h:
 
 C:/Program\ Files/mingw-w64-compiler/x86_64-14.2.0-release-win32-seh-ucrt-rt_v12-rev2/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/xsavesintrin.h:
+
+C:/Program\ Files/mingw-w64-compiler/x86_64-14.2.0-release-win32-seh-ucrt-rt_v12-rev2/mingw64/x86_64-w64-mingw32/include/sec_api/conio_s.h:
 
 C:/Program\ Files/mingw-w64-compiler/x86_64-14.2.0-release-win32-seh-ucrt-rt_v12-rev2/mingw64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/hresetintrin.h:
 

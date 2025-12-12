@@ -66,6 +66,8 @@ void print_statistics(void);                // 打印 ping 统计
 void print_jitters(void);                   // 打印 RTT/抖动
 void print_and_save_bandwidth(void);        // 打印+导出带宽
 void export_and_plot_jitter(void);          // 导出抖动数据
+void ping_reset_session(void);
+
 
 typedef union _xipaddr_t
 {
